@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de promedio</title>
+  
+</head>
+<body>
+  <h1>Calculadora de promedio</h1>
+  <label for="numbers">Ingrese una serie de números separados por comas:</label>
+  <input type="text" id="numbers">
+  <br>
+  <p>Seleccione una estructura:</p>
+  <input type="radio" id="for" name="structure" value="for" checked>
+  <label for="for">For</label>
+  <br>
+  <input type="radio" id="while" name="structure" value="while">
+  <label for="while">While</label>
+  <br>
+  <input type="radio" id="if" name="structure" value="if">
+  <label for="if">If</label>
+  <br>
+  <button onclick="calcularPromedio()">Calcular promedio</button>
+  <p id="resultado"></p>
+<script >
+function calcularPromedio() {
+  let numbersInput = document.getElementById("numbers").value;
+  let numbers = numbersInput.split(",").map(Number);
+  let structure = document.querySelector('input[name="structure"]:checked').value;
+  let sum = 0;
+
+  if (structure === "for") {
+    for (let i = 0; i < numbers.length; i++) {
+      sum += numbers[i];
+    }
+  } else if (structure === "while") {
+    let i = 0;
+    while (i < numbers.length) {
+      sum += numbers[i];
+      i++;
+    }
+  } else if (structure === "if") {
+     for (let i = 0; i < numbers.length; i++) {
+      sum += numbers[i];
+    /* let i = 0;
+    if (numbers.length > 0) {
+      sum += numbers[i];
+      i++; */
+    }
+  }
+
+  let average = sum / numbers.length;
+  let resultado = document.getElementById("resultado");
+  resultado.textContent = "El promedio es: " + average.toFixed(2);
+}
+
+
+</script>
+</body>
+</html>
+

@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sum of Positive Numbers</title>
+</head>
+<body>
+<h1>The sum of the positive numbers you entered is:</h1>
+<p id="sum"></p>
+<script >
+
+let suma = 0;
+
+while (true) {
+  let numero = parseInt(prompt("Ingresa un número positivo:"));
+
+  if (numero < 0) {
+    break;
+  }
+
+  suma += numero;
+}
+
+
+
+document.querySelector('#sum').innerHTML = suma;
+
+
+
+</script>
+</body>
+</html>
+
+
